@@ -11,22 +11,19 @@ contract TypeConverter {
     function asciiToUint(string calldata str) public pure returns (uint256 result) {
         assembly {
             let len := str.length
-            let data := str.offset
+            let data := str.offset // offset of str in calldata
 
-            // Revert if string is empty
             if iszero(len) { revert(0, 0) }
 
             for { let i := 0 } lt(i, len) { i := add(i, 1) } {
                 let char := byte(0, calldataload(add(data, i)))
 
-                // Ensure character is between ASCII '0' and '9'
+                // character is between ASCII '0' and '9'
                 if or(lt(char, 0x30), gt(char, 0x39)) {
-                    // Use custom error
-                    mstore(0, 0x4ca88867) // selector for InvalidInput()
+                    mstore(0, 0x4ca88867) 
                     revert(0, 4)
                 }
 
-                // Convert to integer and accumulate in result
                 result := add(mul(result, 10), sub(char, 0x30))
             }
         }
@@ -41,10 +38,8 @@ contract TypeConverter {
             let len := hexStr.length
             let data := hexStr.offset
 
-            // Revert if string is empty or has odd length
             if or(iszero(len), mod(len, 2)) {
-                // Use custom error
-                mstore(0, 0x4ca88867) // selector for InvalidInput()
+                mstore(0, 0x4ca88867) // 
                 revert(0, 4)
             }
 
@@ -67,10 +62,8 @@ contract TypeConverter {
                 // Handle uppercase ('A' - 'F')
                 if and(gt(char, 0x40), lt(char, 0x47)) { value := add(sub(char, 0x41), 10) }
                 
-                // If invalid character, revert
                 if and(iszero(value), iszero(eq(char, 0x30))) {
-                    // Use custom error
-                    mstore(0, 0x4ca88867) // selector for InvalidInput()
+                    mstore(0, 0x4ca88867) 
                     revert(0, 4)
                 }
             }
