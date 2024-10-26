@@ -10,7 +10,6 @@
 
 ## Gas Report
 
-gas
 | TypeConverter.sol:TypeConverter contract | | | | | |
 |------------------------------------------|-----------------|------|--------|------|---------|
 | Deployment Cost | Deployment Size | | | | |
