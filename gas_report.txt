@@ -1,0 +1,19 @@
+No files changed, compilation skipped
+
+Ran 3 tests for test/TypeConverter.t.sol:TypeConverterTest
+[PASS] testAsciiToUint() (gas: 9016)
+[PASS] testAsciiToUintTwo() (gas: 9036)
+[PASS] testHexToUint() (gas: 9191)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 10.08ms (7.51ms CPU time)
+| TypeConverter.sol:TypeConverter contract |                 |      |        |      |         |
+|------------------------------------------|-----------------|------|--------|------|---------|
+| Deployment Cost                          | Deployment Size |      |        |      |         |
+| 180753                                   | 622             |      |        |      |         |
+| Function Name                            | min             | avg  | median | max  | # calls |
+| asciiToUint                              | 911             | 911  | 911    | 911  | 2       |
+| hexToUint                                | 1055            | 1055 | 1055   | 1055 | 1       |
+
+
+
+
+Ran 1 test suite in 16.69ms (10.08ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

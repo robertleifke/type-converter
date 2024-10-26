@@ -1,66 +1,20 @@
-## Foundry
+# TypeConverter
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+`TypeConverter` is a utility contract written in [Yul](https://docs.soliditylang.org/en/latest/yul.html) that converts string data types into integers. This contract includes functions for converting both ASCII-encoded decimal strings and hexadecimal strings to unsigned integers (uint256). While this contract is pretty much useless on its own, it's was a fun way to learn Yul  and I reckon someone will find a way to use it for some super niche string-to-integer parsing use case.
 
-Foundry consists of:
+## Features
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- ASCII to Integer Conversion (asciiToUint): Converts base-10 ASCII-encoded strings (e.g., "1234") to uint256 values. Only characters '0'–'9' are allowed; any other input will trigger an InvalidInput error.
 
-## Documentation
+- Hexadecimal to Integer Conversion (hexToUint): Converts hexadecimal-encoded strings (e.g., "1A3F") to uint256 values. Supports both uppercase ('A'–'F') and lowercase ('a'–'f') hex characters. Requires the input to have an even length to represent valid bytes. An InvalidInput error is triggered for empty, uneven, or invalid hex strings.
 
-https://book.getfoundry.sh/
+## Gas Report
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+gas
+| TypeConverter.sol:TypeConverter contract | | | | | |
+|------------------------------------------|-----------------|------|--------|------|---------|
+| Deployment Cost | Deployment Size | | | | |
+| 180753 | 622 | | | | |
+| Function Name | min | avg | median | max | # calls |
+| asciiToUint | 911 | 911 | 911 | 911 | 2 |
+| hexToUint | 1055 | 1055 | 1055 | 1055 | 1 |

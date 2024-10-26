@@ -1,0 +1,3 @@
+TypeConverterTest:testAsciiToUint() (gas: 9016)
+TypeConverterTest:testAsciiToUintTwo() (gas: 9036)
+TypeConverterTest:testHexToUint() (gas: 9191)
