@@ -1,6 +1,6 @@
 # TypeConverter
 
-`TypeConverter` is a utility contract written in [Yul](https://docs.soliditylang.org/en/latest/yul.html) that converts string data types into integers. This contract includes functions for converting both ASCII-encoded decimal strings and hexadecimal strings to unsigned integers (uint256). While this contract is pretty much useless on its own, it's was a fun way to learn Yul  and I reckon someone will find a way to use it for some super niche string-to-integer parsing use case.
+`TypeConverter` has two utility functions written in [Yul](https://docs.soliditylang.org/en/latest/yul.html) that convert string data types into integers. Specifically, it converts ASCII-encoded decimal strings and hexadecimal strings into uint256 integers. While this contract is pretty much useless on its own, it's was a fun way to learn Yul and I reckon someone will find a way to use it for some super niche string-to-integer parsing use case.
 
 ## Features
 
